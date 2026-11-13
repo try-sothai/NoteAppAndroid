@@ -1,0 +1,15 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme (Dark). -->
+    <style name="Base.Theme.Androidnoteapp" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">#818CF8</item>
+        <item name="colorPrimaryVariant">#4F46E5</item>
+        <item name="colorOnPrimary">#0F172A</item>
+        <item name="colorSecondary">#2DD4BF</item>
+        <item name="colorOnSecondary">#0F172A</item>
+        <item name="android:colorBackground">#0F172A</item>
+        <item name="colorSurface">#1E293B</item>
+        <item name="colorOnSurface">#F8FAFC</item>
+        <item name="android:statusBarColor">#0F172A</item>
+        <item name="android:windowLightStatusBar">false</item>
+    </style>
+</resources>

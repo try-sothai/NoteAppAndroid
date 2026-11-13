@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/background"
+    android:padding="20dp">
+
+    <!-- Top App Bar Header -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:contentDescription="App Logo"
+            android:src="@drawable/ic_note_logo" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvHeaderTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="My Notes"
+                android:textColor="@color/text_primary"
+                android:textSize="26sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvNoteCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0 notes"
+                android:textColor="@color/text_secondary"
+                android:textSize="13sp" />
+
+        </LinearLayout>
+
+        <!-- Storage Engine Switcher Badge -->
+        <TextView
+            android:id="@+id/btnDbBadge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="6dp"
+            android:background="@drawable/bg_chip_unselected"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="5dp"
+            android:text="SQLite"
+            android:textColor="@color/primary"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+
+        <!-- Export / Import Icon Button -->
+        <ImageButton
+            android:id="@+id/btnExportImport"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Export / Import Notes"
+            android:src="@drawable/ic_export" />
+
+        <!-- Settings Icon Button -->
+        <ImageButton
+            android:id="@+id/btnSettings"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Settings"
+            android:src="@drawable/ic_settings" />
+
+        <!-- More Menu Icon Button -->
+        <ImageButton
+            android:id="@+id/btnMore"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="More Options"
+            android:src="@drawable/ic_more_vert" />
+
+    </LinearLayout>
+
+    <!-- Search Bar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/bg_search_bar"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="12dp">
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:contentDescription="Search Icon"
+            android:src="@drawable/ic_search" />
+
+        <EditText
+            android:id="@+id/etSearch"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="8dp"
+            android:layout_weight="1"
+            android:background="@null"
+            android:hint="Search notes by title or content..."
+            android:inputType="text"
+            android:singleLine="true"
+            android:textColor="@color/text_primary"
+            android:textColorHint="@color/text_muted"
+            android:textSize="14sp" />
+
+        <ImageButton
+            android:id="@+id/btnClearSearch"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Clear search"
+            android:src="@drawable/ic_clear"
+            android:visibility="gone" />
+
+    </LinearLayout>
+
+    <!-- Horizontal Category Filter Bar -->
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/btnFilterAll"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/bg_chip_selected"
+                android:clickable="true"
+                android:focusable="true"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="8dp"
+                android:text="All"
+                android:textColor="@color/white"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/btnFilterStudy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/bg_chip_unselected"
+                android:clickable="true"
+                android:focusable="true"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="8dp"
+                android:text="Study"
+                android:textColor="@color/text_secondary"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/btnFilterPersonal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/bg_chip_unselected"
+                android:clickable="true"
+                android:focusable="true"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="8dp"
+                android:text="Personal"
+                android:textColor="@color/text_secondary"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/btnFilterWork"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/bg_chip_unselected"
+                android:clickable="true"
+                android:focusable="true"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="8dp"
+                android:text="Work"
+                android:textColor="@color/text_secondary"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/btnFilterShopping"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/bg_chip_unselected"
+                android:clickable="true"
+                android:focusable="true"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="8dp"
+                android:text="Shopping"
+                android:textColor="@color/text_secondary"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/btnFilterOther"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_chip_unselected"
+                android:clickable="true"
+                android:focusable="true"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="8dp"
+                android:text="Other"
+                android:textColor="@color/text_secondary"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+    </HorizontalScrollView>
+
+    <!-- Note list RecyclerView -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerNotes"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="14dp"
+        android:clipToPadding="false"
+        android:paddingBottom="12dp" />
+
+    <!-- Empty State View -->
+    <LinearLayout
+        android:id="@+id/layoutEmpty"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:contentDescription="No Notes"
+            android:src="@drawable/ic_empty_notes" />
+
+        <TextView
+            android:id="@+id/tvEmpty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="No notes found"
+            android:textColor="@color/text_primary"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:gravity="center"
+            android:text="Tap + Create Note to start writing your notes."
+            android:textColor="@color/text_secondary"
+            android:textSize="14sp" />
+
+    </LinearLayout>
+
+    <!-- Create Note Action Button -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnAddNote"
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+        android:layout_marginTop="8dp"
+        android:text="+ Create Note"
+        android:textAllCaps="false"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:cornerRadius="16dp"
+        app:icon="@drawable/ic_add"
+        app:iconGravity="textStart"
+        app:iconPadding="8dp" />
+
+</LinearLayout>
